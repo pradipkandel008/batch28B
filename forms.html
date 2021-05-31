@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+  </head>
+  <body>
+    <h1>HTML Form</h1>
+    <form enctype="multipart/form-data">
+      <label for="fname">Firstname:</label>
+      <input
+        type="text"
+        id="fname"
+        name="fname1"
+        placeholder="Enter firstname"
+      /><br /><br />
+      <label for="lname">Lastname:</label>
+      <input
+        type="text"
+        id="lname"
+        name="lname1"
+        value="kandel"
+        placeholder="Enter Lastname"
+      /><br /><br />
+      <label for="image">Image:</label>
+      <input type="file" name="image" id="image" multiple /> <br />
+      <br />
+      <input type="button" name="submit1" value="Login" />
+      <input type="submit" name="submit" value="Sign Up" />
+      <button type="button">Continue</button>
+      <button type="reset">Reset</button>
+      <input type="reset" value="Reset2" />
+    </form>
+  </body>
+</html>
