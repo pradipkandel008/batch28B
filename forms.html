@@ -8,30 +8,96 @@
   </head>
   <body>
     <h1>HTML Form</h1>
-    <form enctype="multipart/form-data">
+    <form
+      enctype="multipart/form-data"
+      method="get"
+      action="image.html"
+      autocomplete="off"
+      novalidate
+    >
       <label for="fname">Firstname:</label>
       <input
         type="text"
         id="fname"
         name="fname1"
         placeholder="Enter firstname"
+        required
+        autofocus
+        readonly
+        disabled
       /><br /><br />
       <label for="lname">Lastname:</label>
       <input
         type="text"
         id="lname"
         name="lname1"
-        value="kandel"
         placeholder="Enter Lastname"
+        required
       /><br /><br />
-      <label for="image">Image:</label>
-      <input type="file" name="image" id="image" multiple /> <br />
+      <label for="description">Description</label>
+      <textarea
+        id="description"
+        name="description"
+        placeholder="Enter description"
+        rows="20"
+        cols="50"
+      ></textarea>
+      <br /><br />
+      <label for="item">Items</label>
+      <select id="item" name="item" multiple>
+        <option>Select Item</option>
+        <option value="item1">Item 1</option>
+        <option value="item2">Item 2</option>
+        <option value="item3">Item 3</option>
+        <option value="item4">Item 4</option>
+        <option value="item5">Item 5</option>
+        <option value="item6">Item 6</option>
+      </select>
+      <br /><br />
+
+      <label for="dob">Date of Birth</label>
+      <select>
+        <option>Select Year</option>
+        <option>2000</option>
+        <option>1999</option>
+        <option>1998</option>
+        <option>1997</option>
+      </select>
+      <select>
+        <option value="">Select Month</option>
+        <option value="">January</option>
+        <option value="">February</option>
+        <option value="">march</option>
+        <option value="">April</option>
+      </select>
       <br />
-      <input type="button" name="submit1" value="Login" />
-      <input type="submit" name="submit" value="Sign Up" />
-      <button type="button">Continue</button>
+      <br />
+
+      <label for="gender">Gender:</label>
+      <input type="radio" id="male" name="gender" value="Male" />
+      <label for="male">Male</label>
+      <input type="radio" id="female" name="gender" value="female" />
+      <label for="female">Female</label>
+      <input type="radio" id="others" name="gender" value="others" />
+      <label for="others">Others</label>
+      <br /><br />
+
+      <label for="items">Items:</label>
+      <input type="checkbox" id="item1" name="item1" value="item1" />
+      <label for="">Item 1</label>
+      <input type="checkbox" id="item2" name="item2" value="item2" />
+      <label for="item2">Item 2</label>
+      <input type="checkbox" id="item3" name="item3" value="item3" />
+      <label for="item3">Item 3</label>
+      <br /><br />
+      <label for="image">Image:</label>
+      <input type="image" name="image" id="image" multiple /> <br />
+      <br />
+      <!-- <input type="button" name="submit1" value="Login" /> -->
+      <input type="submit" name="submit" value="Submit" />
+      <!-- <button type="button">Continue</button> -->
       <button type="reset">Reset</button>
-      <input type="reset" value="Reset2" />
+      <!-- <input type="reset" value="Reset2" /> -->
     </form>
   </body>
 </html>
