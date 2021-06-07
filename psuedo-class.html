@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      /* selector:pseudo-class{
+
+        } */
+      /* a:link {
+        color: black;
+        text-decoration: none;
+      }
+      a:visited {
+        color: sandybrown;
+      }
+
+      a:hover {
+        color: blue;
+      }
+
+      a:active {
+        color: red;
+      } */
+      tr:hover {
+        background-color: gray;
+      }
+      tr:nth-child(even) {
+        background-color: grey;
+      }
+      input:focus {
+        background-color: hotpink;
+        color: white;
+      }
+
+      /* selector::pseudo-elements{
+
+      } */
+      p::first-letter {
+        font-size: 50px;
+        color: lawngreen;
+      }
+      /* p::first-line {
+        font-size: 50px;
+      } */
+
+      ::selection {
+        background-color: lightcoral;
+        color: white;
+      }
+      ::marker {
+        color: blue;
+      }
+
+      a[target="_blank"] {
+        background-color: lightgreen;
+      }
+
+      a[target="_self"] {
+        background-color: magenta;
+      }
+
+      input[type="text"] {
+        color: white;
+        padding: 5px;
+        border-radius: 5px;
+        border: 2px solid green;
+        font-size: 16px;
+      }
+      input[type="button"] {
+        background-color: magenta;
+        color: white;
+        padding: 15px;
+        margin: 5px;
+        border-radius: 10px;
+        border: none;
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pseudo Class</title>
+  </head>
+  <body>
+    <h1>Pseudo Class</h1>
+    <a href="#" target="_blank">Blank Link</a> <br /><br />
+    <a href="#" target="_self">Self Link</a>
+    <a href="https://campus.softwarica.edu.np" target="_blank">Campus 4.0</a>
+    <a href="https://campus.softwarica.edu.np" target="_blank">Campus 4.0</a>
+    <a href="https://www.google.com">New link</a>
+
+    <h1>HTML Table</h1>
+    <table border="1">
+      <caption>
+        EPS of Commercial Banks
+      </caption>
+      <thead>
+        <tr>
+          <th>S.N.</th>
+          <th>Name of Commercial Bank</th>
+          <th>EPS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Rastriya Banijya Bank</td>
+          <td>49.44</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Nabil Bank</td>
+          <td>37.24</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Nabil Bank</td>
+          <td>37.24</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Nabil Bank</td>
+          <td>37.24</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th>S.N.</th>
+          <th>Name of Commercial Bank</th>
+          <th>EPS</th>
+        </tr>
+      </tfoot>
+    </table>
+
+    <h1>Form</h1>
+    <input type="text" />
+    <input type="button" value="Submit" />
+
+    <h1>Pseudo Elements</h1>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, consequatur
+      quas ab possimus suscipit voluptate, enim ex nihil obcaecati maxime illum
+      est saepe dicta accusamus molestiae, voluptatibus quos? Autem, nulla?
+      Molestias doloremque numquam beatae impedit soluta exercitationem natus
+      placeat tenetur optio facere tempora, illo qui quibusdam esse inventore
+      veniam neque dolor adipisci, libero eos vero. Autem dolore laboriosam esse
+      itaque. Quo ut facilis repudiandae, magnam ipsum impedit illo dignissimos
+      minima omnis ipsam atque quisquam sint molestiae fuga aspernatur
+      necessitatibus ipsa error! Aliquam ipsa quia incidunt maxime! Quae a
+      tempore asperiores! Doloribus facilis et magni sequi beatae, earum ex
+      quaerat, suscipit doloremque recusandae aperiam voluptatibus. Ipsa
+      reprehenderit ipsum, necessitatibus fuga dolore ratione. Incidunt eum
+      aliquam amet quo laboriosam sunt dicta soluta. Modi dignissimos dolore
+      pariatur voluptatum tempora doloremque animi, enim eaque eos, voluptatibus
+      expedita natus unde itaque suscipit consequatur? Similique, perferendis
+      aliquid cum aliquam accusantium necessitatibus velit voluptas rem aperiam
+      aspernatur.
+    </p>
+
+    <h1>List</h1>
+    <ul style="list-style-type: circle">
+      <li>Language</li>
+      <ol>
+        <li>Python</li>
+        <li>JavaScript</li>
+      </ol>
+      <li>Softwares</li>
+      <ul style="list-style-type: disc">
+        <li>VS Code</li>
+        <ol style="list-style-type: upper-alpha">
+          <li>Version1</li>
+          <li>Version2</li>
+        </ol>
+        <li>Pycharm</li>
+      </ul>
+      <li>CPU</li>
+    </ul>
+  </body>
+</html>
