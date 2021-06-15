@@ -6,12 +6,90 @@
         h1 {
             border: 5px solid red;
             padding: 50px;
-            margin: 300px;
+            margin: 100px;
             width: 300px;
+            box-sizing: content-box;
         }
 
         h2 {
-            margin-top: 250px;
+            border: 5px solid red;
+            margin: 100px;
+            padding: 50px;
+            width: 300px;
+            box-sizing: border-box;
+
+        }
+
+        p {
+            background-color: black;
+            color: white;
+            text-align: justify;
+            text-decoration: underline;
+            text-transform: capitalize;
+            line-height: 30px;
+            text-indent: 100px;
+            letter-spacing: 5px;
+            word-spacing: 10px;
+        }
+
+        * {
+            font-family: 'Arial', Times, serif;
+
+            font-size: 30px;
+        }
+
+        a:link {
+            text-decoration: none;
+            color: black;
+            letter-spacing: 10px;
+        }
+
+        a:hover {
+            background-color: brown;
+        }
+
+        ul {
+            list-style-type: square;
+        }
+
+        ol {
+            list-style-type: lower-alpha;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid red;
+            border-collapse: collapse;
+        }
+
+        table {
+            width: 100%;
+            border-spacing: 45px;
+            empty-cells: hide;
+        }
+
+        caption {
+            caption-side: bottom;
+        }
+
+        td {
+            text-align: center;
+            height: 100px;
+            vertical-align: top;
+        }
+
+        th {
+            text-align: center;
+
+        }
+
+        tr:hover {
+            background-color: rgb(202, 227, 228);
+        }
+
+        tr:nth-child(even) {
+            background-color: chocolate;
         }
     </style>
     <meta charset="UTF-8">
@@ -21,9 +99,89 @@
 </head>
 
 <body>
+    <h1>HTML Table</h1>
+    <table class="table-hover table-striped">
+        <caption>
+            EPS of Commercial Banks
+        </caption>
+        <thead>
+            <tr>
+                <th>S.N.</th>
+                <th>Name of Commercial Bank</th>
+                <th>EPS</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Rastriya Banijya Bank</td>
+                <td>49.44</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Nabil Bank</td>
+                <td>37.24</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Rastriya Banijya Bank</td>
+                <td>49.44</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Nabil Bank</td>
+                <td>37.24</td>
+            </tr>
+            <tr>
+                <td>casc</td>
+                <td></td>
+                <td>casc</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>S.N.</th>
+                <th>Name of Commercial Bank</th>
+                <th>EPS</th>
+            </tr>
+        </tfoot>
+    </table>
     <div class="main-div">
+        <ul>
+            <li>Language</li>
+            <ol>
+                <li>Python</li>
+                <li>JavaScript</li>
+            </ol>
+            <li>Softwares</li>
+            <ul>
+                <li>VS Code</li>
+                <ol>
+                    <li>Version1</li>
+                    <li>Version2</li>
+                </ol>
+                <li>Pycharm</li>
+            </ul>
+            <li>CPU</li>
+        </ul>
+        <a href="https:://campus.softwarica.edu.np">Campus 4.0</a>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis autem voluptas pariatur distinctio rerum omnis
+            eum est, quos facere natus. Perferendis animi blanditiis nobis sapiente? Illo ut consequuntur dolorum velit.
+            Saepe facilis ipsam corrupti, fuga fugiat voluptatum veniam perspiciatis suscipit! Facilis adipisci animi
+            rerum id quisquam rem aut omnis est, pariatur nesciunt necessitatibus, excepturi unde harum cum, sit
+            recusandae minus.
+            Veniam alias perspiciatis nisi velit natus, quod consectetur voluptatem autem, dolorem excepturi explicabo
+            voluptate, quaerat sunt consequuntur iure voluptatibus ullam. Ipsam non earum nisi deleniti qui fugit
+            numquam sed quia!
+            Quod eaque, sint qui adipisci pariatur dolorem nemo rerum ratione sapiente facere nam quas reiciendis
+            molestias aperiam velit minus doloremque perspiciatis hic autem! Reprehenderit, eius obcaecati repellendus
+            ut corrupti voluptates!
+            Eveniet animi veniam sint laborum nam amet! Vitae quidem voluptatem repellendus ab nesciunt aspernatur rem,
+            harum impedit sunt libero facilis dicta omnis quam quibusdam iure voluptate, eaque reprehenderit at. Quasi!
+        </p>
         <h1>This is heading</h1>
         <h2>This is heading 2</h2>
+
     </div>
 
 </body>
