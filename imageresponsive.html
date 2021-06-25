@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        @media screen and (min-width:1000px) and (max-width:1400px) {
+            .main-div {
+                width: 980px;
+                border: 10px solid red;
+            }
+
+            .res-img {
+                width: 980px;
+            }
+        }
+
+        @media screen and (min-width:700px) and (max-width:999px) {
+            .main-div {
+                width: 700px;
+                border: 10px solid red;
+            }
+
+            .res-img {
+                width: 650px;
+            }
+        }
+
+        @media screen and (min-width:450px) and (max-width:699px) {
+            .main-div {
+                width: 450px;
+                border: 10px solid red;
+            }
+
+            .res-img {
+                width: 400px;
+            }
+        }
+
+        .second-div {
+            width: 450px;
+        }
+
+        .second-div img {
+            width: 100%;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="main-div">
+        <img class="res-img" src="images/butterfly.jpg" />
+    </div>
+
+    <div class="second-div">
+        <img src="images/watergall.gif" class="second-img" />
+    </div>
+
+</body>
+
+</html>
