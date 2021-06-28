@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn1" onclick="getStudentID()">Get Student ID</button>
+    <button id="btn2" onclick="getCarName()">Get Car name</button>
+
+    <p id="var-demo"></p>
+    <p id="let-demo"></p>
+
+    <script>
+
+        var i = 5;
+        for (var i = 0; i < 10; i++) {
+            //
+        }
+        console.log(i);
+
+
+        let j = 5;
+        for (let j = 0; j < 10; j++) {
+            //
+        }
+        console.log(j);
+
+
+
+
+
+
+        var a;
+        a = 10;
+        var x = 5;
+        var y = "Pradip";
+        var a = 5, name = "Pradip", age = "23";
+        let fname = "Pradip";
+        const PI = 3.14;
+        // const g;
+        // g = 9.8;
+
+        var items = { name: "Item1", price: "250" }
+
+        var college = "We are from \"Softwarica\" College";
+        var college = 'We are from \'Softwarica\' College';
+        console.log(college);
+
+        var studentsName = ["Nabin", "Bipas", "Ishan"];
+        console.log(studentsName[2]);
+
+        var varName;
+        console.log(varName);
+
+        var name = null;
+
+
+        var studentID = 101;
+
+        function getStudentID() {
+            console.log(studentID);
+        }
+
+        function getCarName() {
+            var carName = "Mercedes";
+            console.log(carName);
+        }
+        // console.log(carName);
+
+
+        {
+            var abc = "Softwarica College";
+        }
+        console.log(abc);
+
+        {
+            let xyz = "Coventry University";
+            console.log(xyz);
+        }
+        console.log(xyz);
+
+        const gravity = 9.8;  //correct way
+
+        //incorrect way
+        const gravity;
+        gravity = 9.8;
+        gravity = gravity + 0.2;
+
+
+
+
+    </script>
+
+</body>
+
+</html>
