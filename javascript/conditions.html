@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conditions</title>
+</head>
+
+<body>
+    <script>
+        let age = 16;
+        if (age >= 18) {
+            console.log("You can vote");
+        }
+        else {
+            console.log("You cannot vote");
+        }
+    </script>
+
+    <script>
+        let obtained_mark = 105;
+
+        if (obtained_mark >= 70 && obtained_mark < 100) {
+            console.log("Distinction");
+        }
+        else if (obtained_mark >= 60 && obtained_mark < 70) {
+            console.log("First Class")
+        }
+        else if (obtained_mark >= 50 && obtained_mark < 60) {
+            console.log("Second Class");
+        }
+        else if (obtained_mark >= 40 && obtained_mark < 50) {
+            console.log("Pass")
+        }
+        else if (obtained_mark >= 100 || obtained_mark < 0) {
+            console.log("Invalid Input")
+        }
+        else {
+            console.log("Fail")
+        }
+
+    </script>
+
+    <script>
+        let myDay = new Date().getDay();
+        // console.log(myDay);
+        switch (myDay) {
+            case 0:
+                console.log("Sunday");
+                break;
+            case 1:
+                console.log("Monday");
+                break;
+            case 2:
+                console.log("Tuesday");
+                break;
+            case 3:
+                console.log("Wednesday");
+                break;
+            case 4:
+                console.log("Thursday");
+                break;
+            case 5:
+                console.log("Friday");
+                break;
+            case 6:
+                console.log("Saturday");
+                break;
+            default:
+                console.log("Invalid day");
+        }
+    </script>
+
+</body>
+
+</html>
