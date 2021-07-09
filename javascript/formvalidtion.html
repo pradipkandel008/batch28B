@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <script>
+        function validateForm() {
+            let fname = document.getElementById("firstname");
+            let lname = document.getElementById("lastname");
+            let ph = document.getElementById("phone");
+            let email = document.getElementById("email");
+            let pwd = document.getElementById("password");
+
+            let letters = /^[A-Za-z]+$/
+            let numbers = /^[0-9]+$/
+            let alphanumeric = /^[0-9a-zA-Z]+$/
+            let email_pattern = /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,5})$/
+            let password_pattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
+            let phone_pattern = /^\b\d{3}[-.]?\d{3}[-.]?\d{4}\b$/
+
+            if (fname.value.match(letters)) {
+                return true;
+            }
+            else {
+                alert("Firstname must be only alphabets");
+                fname.focus();
+                return false
+            }
+
+            // if (fname.value == "") {
+            //     alert("Firstname is required");
+            //     fname.focus();
+            //     return false;
+            // }
+            // if (lname.value == "") {
+            //     alert("lastname is required");
+            //     lname.focus();
+            //     return false;
+            // }
+            // if (isNaN(ph.value)) {
+            //     alert("Phone number must be number");
+            //     ph.focus();
+            //     return false;
+            // }
+
+            // if (pwd.value.length < 8) {
+            //     alert("Password must be at least 8 characters");
+            //     pwd.focus();
+            //     return false;
+            // }
+        }
+    </script>
+</head>
+
+<body>
+    <form action="" method="POST" onsubmit="return validateForm()">
+        <input type="text" id="firstname" name="firstname" placeholder="Enter first name"><br /><br />
+        <input type="text" id="lastname" name="lastname" placeholder="Enter last name" pattern="/^[A-Za-z]+$/"
+            title="This field must be alphabets"><br /><br />
+        <input type="text" name="phone" id="phone" placeholder="Enter phone number"><br /><br />
+        <input type="email" name="email" id="email" placeholder="Enter email"><br /><br />
+        <input type="password" name="password" id="password" placeholder="Enter password"><br /><br />
+        <input type="number" name="price" id="price" min="1" max="10000">
+        <input type="submit" value="Submit">
+    </form>
+
+</body>
+
+</html>

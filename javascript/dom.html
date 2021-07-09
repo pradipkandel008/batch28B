@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+
+<body>
+
+    <p id="para1">This is first paragraph</p>
+    <h1 class="head1">THis is heading 1</h1>
+    <h2 id="head2">THis is heading 2</h2>
+    <h1 class="head1">THis is heading 1</h1>
+
+    <img id="imagetest" src="../images/KATHMANDU.jpg" width="400" />
+    <button type="button" onclick="changeImage()">Click to change image</button>
+
+    <script>
+        // var x = document.getElementByTagName("p");
+        // var y = document.getElementsByClassName("head1");
+        // var z = document.getElementById("head2");
+        // var a = document.querySelector(".head1");
+        // var b = document.querySelectorAll(".head1");
+
+        document.getElementById("para1").innerHTML = "This is second paragraph";
+        // document.getElementById("head2").innerHTML = "heading 2";
+
+        function changeImage() {
+            document.getElementById("imagetest").src = "../images/phone.png";
+            document.getElementById("imagetest").width = "200";
+        }
+        document.getElementById("head2").style.color = "green";
+    </script>
+</body>
+
+</html>

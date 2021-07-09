@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+</head>
+
+<body>
+
+    <p id="para1">This is initial text</p>
+    <button type="button" onclick="clickEvent()">Click Event</button>
+    <br /><br />
+    <p id="para2">This is paragraph 2</p>
+    <button type="button" ondblclick="doubleClickEvent()">Double Click Event</button>
+    <br /><br />
+    <h1 id="head1" onmouseover="mouseEvent()">Hello</h1>
+
+    <input type="text" onkeypress="keyupEvent()" /><br /><br />
+
+    <input type="text" onchange="changeEvent(this.value)" />
+
+    <script>
+        function clickEvent() {
+            document.getElementById("para1").innerHTML = "Final Text"
+        }
+
+        function doubleClickEvent() {
+            document.getElementById("para2").style.display = "none"
+        }
+        function mouseEvent() {
+            document.getElementById("head1").innerHTML = "Welcome"
+            document.getElementById("head1").style.color = "red"
+        }
+
+        function keyupEvent() {
+            alert("Keyup event occurred")
+        }
+
+        function changeEvent(val) {
+            alert("You entered: " + val)
+        }
+
+
+    </script>
+
+</body>
+
+</html>
