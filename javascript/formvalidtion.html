@@ -21,14 +21,17 @@
             let password_pattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
             let phone_pattern = /^\b\d{3}[-.]?\d{3}[-.]?\d{4}\b$/
 
-            if (fname.value.match(letters)) {
-                return true;
-            }
-            else {
+            if (!fname.value.match(letters)) {
                 alert("Firstname must be only alphabets");
                 fname.focus();
                 return false
             }
+            if (!lname.value.match(letters)) {
+                alert("Lastname must be only alphabets");
+                lname.focus();
+                return false
+            }
+            return true;
 
             // if (fname.value == "") {
             //     alert("Firstname is required");
