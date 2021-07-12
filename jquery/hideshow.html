@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hide Show</title>
+    <style>
+        .main-div,
+        .fadeout-div,
+        .fadetoggle-div {
+            background-color: brown;
+            height: 200px;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .fadein-div {
+            background-color: cadetblue;
+            height: 200px;
+            display: none;
+            margin-bottom: 5px;
+        }
+    </style>
+    <script src="jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+
+    <div class="main-div">
+        <h1>Hide Show Effect</h1>
+    </div>
+
+    <button id="hide">Hide</button>
+    <button id="show">Show</button>
+    <button id="toggle">Toggle</button>
+    <hr />
+
+    <div class="fadein-div">
+        <h1>Fade In</h1>
+    </div>
+
+    <div class="fadeout-div">
+        <h1>Fade Out</h1>
+    </div>
+
+    <div class="fadetoggle-div">
+        <h1>Fade Toggle</h1>
+    </div>
+
+    <button id="fadein">Fade In</button>
+    <button id="fadeToggle">Fade Toggle</button>
+
+    <script>
+        $(document).ready(function () {
+            $("#fadein").click(function () {
+                $(".fadein-div").fadeIn(3000);
+            })
+
+            $(".fadein-div").fadeIn(2000);
+            $(".fadeout-div").fadeOut(2000);
+
+            $("#fadeToggle").click(function () {
+                $(".fadetoggle-div").fadeToggle(3000)
+            })
+        })
+
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $("#hide").click(function () {
+                $(".main-div").hide(1000);
+                // slow fast or in milliseconds (1000, 2000,3000)
+            })
+
+            $("#show").click(function () {
+                $(".main-div").show("slow");
+            })
+
+            $("#toggle").click(function () {
+                $(".main-div").toggle(2000)
+            })
+
+        })
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide</title>
+    <style>
+        .slideUp,
+        .slideToggle {
+            background-color: orange;
+            height: 200px;
+            margin-bottom: 5px;
+        }
+
+        .slideDown {
+            background-color: orangered;
+            height: 200px;
+            margin-bottom: 5px;
+            display: none;
+        }
+    </style>
+    <script src="jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <div class="slideUp">
+        <h1>Slide Up</h1>
+    </div>
+    <button id="slideUp">Click to Slide Up</button>
+    <button id="slideDown">Click to Slide Down</button>
+
+    <hr />
+
+    <div class="slideDown">
+        <h1>Slide Down Example</h1>
+    </div>
+
+    <div class="slideToggle">
+        <h1>Slide Toggle Example</h1>
+    </div>
+
+    <button id="slidetoggle">Click to slide toggle</button>
+
+    <script>
+        $(document).ready(function () {
+            $("#slideUp").click(function () {
+                $(".slideUp").slideUp(3000);
+            })
+            $("#slideDown").click(function () {
+                $(".slideUp").slideDown(3000)
+            })
+
+            $(".slideDown").slideDown(5000)
+
+            $("#slidetoggle").click(function () {
+                $(".slideToggle").slideToggle(3000)
+            })
+        })
+    </script>
+</body>
+
+</html>
