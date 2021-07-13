@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hide Show Without Toggle</title>
+    <script src="jquery-3.6.0.min.js"></script>
+    <style>
+        .main-div {
+            background-color: orangered;
+            height: 500px;
+            width: 500px;
+            margin: 10px;
+        }
+
+        #btn {
+            background-color: black;
+            color: #fff;
+            padding: 5px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-div">
+
+    </div>
+    <input type="button" id="btn" value="Hide">
+
+    <script>
+        $("#btn").click(function () {
+            let x = $(this).val();
+
+            if (x == "Hide") {
+                $(".main-div").hide();
+                $(this).val("Show");
+            }
+
+            else if (x == "Show") {
+                $(".main-div").show();
+                $(this).val("Hide");
+            }
+        })
+    </script>
+
+</body>
+
+</html>

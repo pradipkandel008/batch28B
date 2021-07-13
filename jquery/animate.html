@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animate</title>
+    <style>
+        .main-div {
+            height: 500px;
+            width: 500px;
+            margin: 5px;
+            background-color: orange;
+            position: relative;
+        }
+    </style>
+    <script src="jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <div class="main-div">
+        <h1>Division 1 Text</h1>
+    </div>
+    <button id="btn">Add CSS</button>
+
+    <script>
+        $("#btn").click(function () {
+            $(".main-div").css({ "background-color": "green", "border": "2px solid red" })
+            // $(".main-div").css("background-color", "green")
+        })
+    </script>
+
+
+
+
+    <!-- <script>
+        // $(".main-div").hide(5000);
+        // alert("Animation completed");
+        // $(".main-div").slideUp(5000, function () {
+        //     $(".main-div").fadeIn(5000)
+        // })
+    </script> -->
+    <!-- <button id="btn">Click to animate</button>
+
+    <script>
+        $(document).ready(function () {
+            $(".main-div").animate({ left: "250px", height: "+=200px", width: "-=200px" })
+
+            $("#btn").click(function () {
+                $(".main-div").animate({ left: "250px" })
+            })
+        })
+
+
+    </script> -->
+
+</body>
+
+</html>
