@@ -1,0 +1,18 @@
+py -m pip install Django
+
+py -m django --version
+
+---------------------------
+django-admin 
+
+django-admin startproject project_name
+
+python manage.py runserver
+
+python manage.py startapp app_name
+
+python manage.py makemigrations
+
+python manage.py migrate
+
+python manage.py createsuperuser
