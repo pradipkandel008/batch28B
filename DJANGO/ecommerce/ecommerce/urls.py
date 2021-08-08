@@ -14,8 +14,22 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from django.http import HttpResponse
+
+
+def index(request):
+    return HttpResponse("This is first function in django")
+
+
+def batch28B(request):
+    return HttpResponse("This is django class in batch28B")
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('first/', index),
+    path('second/', batch28B),
+    path('products/', include('products.urls')),
+
 ]

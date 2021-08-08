@@ -1,3 +1,10 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 
-# Create your views here.
+
+def from_app(request):
+    return HttpResponse("This is http response from an app")
+
+
+def second_function(request):
+    return HttpResponse("This is http response from an app with second function")
