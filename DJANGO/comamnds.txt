@@ -16,3 +16,21 @@ python manage.py makemigrations
 python manage.py migrate
 
 python manage.py createsuperuser
+
+
+http://127.0.0.0:8000/
+
+http://127.0.0.0:8000/first
+http://127.0.0.0:8000/second
+
+http://127.0.0.0:8000/products/
+http://127.0.0.0:8000/products/second
+http://127.0.0.0:8000/products/third
+http://127.0.0.0:8000/products/home/my
+
+http://127.0.0.0:8000/orders/
+http://127.0.0.0:8000/orders/home
+http://127.0.0.0:8000/orders/home/my
+
+http://127.0.0.0:8000
+

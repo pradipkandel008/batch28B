@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block title %}
+<title>Index page</title>
+{% endblock %}
+
+{% block main_content %}
+<h1>Products</h1>
+<ul>
+   {% for product in products %}
+    <li>Name: {{ product.name }}  Price: {{ product.price }} Stock:{{product.stock}}</li>
+    {% endfor %}
+</ul>
+
+<img src="{% static 'images/image1.jpg' %}" alt=""/>
+<img src="{% static 'images/image2.jpg' %}" alt=""/>
+
+{% include 'products/test.html' %}
+
+{% endblock main_content %}
