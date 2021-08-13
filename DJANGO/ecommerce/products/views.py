@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Product
+from .forms import PersonForm
 
 
 def from_app(request):
@@ -20,10 +21,16 @@ def second_page(request):
 
 
 def get_products(request):
-    products = Product.objects.all()
+    products_django = Product.objects.all()
     context = {
-        "products": products
+        "products": products_django
     }
     return render(request, 'products/getProducts.html', context)
 
 
+def get_person_form(request):
+    form_django = PersonForm()
+    context = {
+        'form': form_django
+    }
+    return render(request, 'products/get_person_form.html', context)

@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block main_content %}
+
 <h1>Products</h1>
 <ul>
    {% for product in products %}
@@ -12,8 +13,8 @@
     {% endfor %}
 </ul>
 
-<img src="{% static 'images/image1.jpg' %}" alt=""/>
-<img src="{% static 'images/image2.jpg' %}" alt=""/>
+<img src="{% static 'images/image1.jpg' %}" alt="" class="rounded-circle"/>
+<img src="{% static 'images/image2.jpg' %}" alt="" class="img-fluid"/>
 
 {% include 'products/test.html' %}
 
