@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+{% block title %}
+<title>Product Form</title>
+{% endblock title %}
+
+{% block main_content %}
+<h1>Product Form</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{ forms }}
+    <button type="submit">Submit</button>
+</form>
+
+{% endblock main_content %}

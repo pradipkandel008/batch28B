@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+{% block title %}
+<title>All Students</title>
+{% endblock%}
+
+{% block main_content %}
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-10 offset-md-1">
+            <h1 class="text-center">All Students</h1>
+            <div class="card p-2">
+                <table class="table-striped">
+                    <tr>
+                        <th>Firstname</th>
+                        <th>Lastname</th>
+                        <th>Batch</th>
+                        <th>Image</th>
+                        <th>Actions</th>
+                    </tr>
+                    {% for student in students %}
+                    <tr>
+                        <td> {{ student.firstname }}</td>
+                        <td> {{ student.lastname }}</td>
+                        <td> {{ student.batch }}</td>
+
+                        <td> <img src="{{student.image_url}}" alt="student_image" width="100"></td>
+                        <td><a class="btn btn-primary">Edit</a> &nbsp;
+                            <a class="btn btn-danger"
+                               href="/products/delete_student/{{student.id}}"
+                               onclick="return confirm('Are you sure want to delete this student?')"
+                            >Delete</a></td>
+                    </tr>
+                    {% endfor %}
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock main_content %}

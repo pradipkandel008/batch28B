@@ -10,3 +10,14 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
+
+class Student(models.Model):
+    firstname = models.CharField(max_length=50)
+    lastname = models.CharField(max_length=50)
+    batch = models.IntegerField()
+    image_url = models.URLField()
+    created_date = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return self.firstname
+

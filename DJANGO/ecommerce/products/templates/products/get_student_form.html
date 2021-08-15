@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+{% block title %}
+    <title>Add Students</title>
+{% endblock%}
+
+{% block main_content %}
+<div class="container">
+<div class="row">
+
+    <div class="col-md-6 offset-md-3">
+        <h1 class="text-center">Add New Student</h1>
+        <div class="card p-2">
+        <form class="form" action="" method="POST">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="firstname">Firstname</label>
+                <input type="text" class="form-control" id="firstname" name="firstname" aria-describedby="firstname" placeholder="Enter first name">
+            </div>
+            <div class="mb-3">
+                <label for="lastname">Lastname</label>
+                <input type="text" class="form-control" id="lastname" name="lastname" aria-describedby="lastname" placeholder="Enter last name">
+            </div>
+            <div class="mb-3">
+                <label for="batch">Batch</label>
+                <input type="number" class="form-control" id="batch" name= "batch" aria-describedby="batch" placeholder="Enter batch">
+            </div>
+            <div class="mb-3">
+                <label for="image_url">Image URL</label>
+                <input type="text" class="form-control" id="image_url" name="img_url" aria-describedby="image_url" placeholder="Enter image URL">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    </div>
+</div>
+</div>
+
+{% endblock %}
