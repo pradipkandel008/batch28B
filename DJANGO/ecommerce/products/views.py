@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import Product, Student
+from .models import Product, Student, Person
 from .forms import PersonForm, ProductForm
 
 
@@ -23,7 +23,8 @@ def second_page(request):
 def get_products(request):
     products_django = Product.objects.all()
     context = {
-        "products": products_django
+        "products": products_django,
+        "activate_product": 'active'
     }
     return render(request, 'products/getProducts.html', context)
 
@@ -61,14 +62,18 @@ def get_student_form(request):
         # url path
         else:
             return HttpResponse("Unable to create student")
-    return render(request, 'products/get_student_form.html')
+    context = {
+        'activate_student': 'active'
+    }
+    return render(request, 'products/get_student_form.html', context)
     # html file path
 
 
 def get_students(request):
     students = Student.objects.all()
     context = {
-        'students': students
+        'students': students,
+        'activate_student': 'active'
     }
     return render(request, 'products/get_students.html', context)
 
@@ -77,3 +82,22 @@ def delete_student(request, student_id):
     student = Student.objects.get(id=student_id)
     student.delete()
     return redirect('/products/get_students/')
+
+
+def update_student(request, student_id):
+    student = Student.objects.get(id=student_id)
+
+    if request.method == "POST":
+        # data = request.POST
+        student.firstname = request.POST['firstname']
+        student.lastname = request.POST['lastname']
+        student.batch = request.POST['batch']
+        student.image_url = request.POST['img_url']
+        student.save()
+        return redirect('/products/get_students/')
+
+    context = {
+        'student': student,
+        'activate_student': 'active'
+    }
+    return render(request, 'products/update_student_form.html', context)

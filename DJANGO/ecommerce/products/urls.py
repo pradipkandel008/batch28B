@@ -11,5 +11,6 @@ urlpatterns =[
     path('get_product_form/', views.get_product_form),
     path('get_student_form/', views.get_student_form),
     path('get_students/', views.get_students),
-    path('delete_student/<int:student_id>', views.delete_student)
+    path('delete_student/<int:student_id>', views.delete_student),
+    path('update_student/<int:student_id>', views.update_student),
 ]

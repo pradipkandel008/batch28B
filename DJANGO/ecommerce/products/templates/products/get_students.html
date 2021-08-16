@@ -10,6 +10,7 @@
         <div class="col-md-10 offset-md-1">
             <h1 class="text-center">All Students</h1>
             <div class="card p-2">
+                <a class="btn btn-primary btn-sm ms-auto" href="/products/get_student_form/">Add Student</a>
                 <table class="table-striped">
                     <tr>
                         <th>Firstname</th>
@@ -25,8 +26,9 @@
                         <td> {{ student.batch }}</td>
 
                         <td> <img src="{{student.image_url}}" alt="student_image" width="100"></td>
-                        <td><a class="btn btn-primary">Edit</a> &nbsp;
-                            <a class="btn btn-danger"
+                        <td><a class="btn btn-primary btn-sm"
+                               href="/products/update_student/{{student.id}}">Edit</a> &nbsp;
+                            <a class="btn btn-danger btn-sm"
                                href="/products/delete_student/{{student.id}}"
                                onclick="return confirm('Are you sure want to delete this student?')"
                             >Delete</a></td>
