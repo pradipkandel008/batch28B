@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import Product, Student, Person
+from .models import Product, Student, Person, FileUpload
 from .forms import PersonForm, ProductForm
 
 
@@ -29,12 +29,12 @@ def get_products(request):
     return render(request, 'products/getProducts.html', context)
 
 
-def get_person_form(request):
-    form_django = PersonForm()
-    context = {
-        'form': form_django
-    }
-    return render(request, 'products/get_person_form.html', context)
+# def get_person_form(request):
+#     form_django = PersonForm()
+#     context = {
+#         'form': form_django
+#     }
+#     return render(request, 'products/get_person_form.html', context)
 
 
 def get_product_form(request):
@@ -101,3 +101,64 @@ def update_student(request, student_id):
         'activate_student': 'active'
     }
     return render(request, 'products/update_student_form.html', context)
+
+
+# with modelform
+def get_person_form(request):
+    form = PersonForm()
+    if request.method == "POST":
+        form = PersonForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/products/get_persons/')
+    context = {
+        'form_person': form,
+        'activate_person': 'active'
+    }
+    return render(request, 'products/get_person_form.html', context)
+
+
+def get_all_person(request):
+    persons = Person.objects.all()
+    context = {
+        'persons': persons,
+        'activate_person': 'active'
+    }
+    return render(request, 'products/get_persons.html', context)
+
+
+def delete_person(request, person_id):
+    person = Person.objects.get(id=person_id)
+    person.delete()
+    return redirect('/products/get_persons/')
+
+
+def update_person(request, person_id):
+    person = Person.objects.get(id=person_id)
+    if request.method == 'POST':
+        form = PersonForm(request.POST, instance=person)
+        if form.is_valid():
+            form.save()
+            return redirect('/products/get_persons/')
+    context = {
+        'form_person': PersonForm(instance=person),
+        'activate_person': 'active'
+    }
+    return render(request, 'products/update_person.html', context)
+
+
+# file upload with normal form
+def post_file(request):
+    context = {
+        'activate_file': 'active'
+    }
+    return render(request, 'products/post_file.html', context)
+
+
+def get_file(request):
+    files = FileUpload.objects.all()
+    context = {
+        'files': files,
+        'activate_file': 'active'
+    }
+    return render(request, 'products/get_files.html', context)

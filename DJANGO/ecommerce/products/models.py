@@ -31,3 +31,8 @@ class Person(models.Model):
 
     def __str__(self):
         return self.firstname
+
+
+class FileUpload(models.Model):
+    title = models.CharField(max_length=50)
+    file = models.FileField(upload_to='static/uploads')
