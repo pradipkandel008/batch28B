@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+{% load bootstrap %}
+{% block title %}
+<title>Add File</title>
+{% endblock%}
+
+{% block main_content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h1 class="text-center">Add New File</h1>
+            <div class="card p-2">
+                <form class="form" action="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form_file | bootstrap_horizontal}}
+                    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

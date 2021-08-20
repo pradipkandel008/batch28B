@@ -8,9 +8,9 @@
     <div class="row">
 
         <div class="col-md-10 offset-md-1">
-            <h1 class="text-center">All Files</h1>
+            <h1 class="text-center">All Files (ModelForm)</h1>
             <div class="card py-2 px-2">
-                <a class="btn btn-primary btn-sm ms-auto mb-2" href="/products/post_file/">Add New File</a>
+                <a class="btn btn-success btn-sm ms-auto mb-2" href="/products/post_file_modelform/">Add New File</a>
                 <table class="table-striped">
                     <tr>
                         <th>Title</th>
@@ -21,8 +21,9 @@
                     <tr>
                         <td> {{ file.title }}</td>
                         <td> <img src="/{{file.file}}" alt="file_image" width="100"></td>
-                        <td><a href="/products/update_file/{{file.id}}" class="btn btn-primary btn-sm">Edit</a> &nbsp;
-                            <a href="/products/delete_file/{{file.id}}" class="btn btn-danger btn-sm"
+                        <td><a href="/products/update_file_modelform/{{file.id}}" class="btn btn-primary btn-sm">Edit</a> &nbsp;
+                            <a href="/products/delete_file_modelform/{{file.id}}"
+                               class="btn btn-danger btn-sm"
                                onclick="return confirm('Are you sure want to delete this file?')">Delete</a></td>
 
                     </tr>

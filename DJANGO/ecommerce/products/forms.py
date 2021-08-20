@@ -1,5 +1,5 @@
 from django import forms
-from .models import Product, Person
+from .models import Product, Person, FileUpload
 from django.forms import ModelForm
 
 
@@ -24,5 +24,11 @@ class PersonForm(ModelForm):
     class Meta:
         model = Person
         fields = '__all__'
+
+
+class FileForm(ModelForm):
+    class Meta:
+        model = FileUpload
+        fields = "__all__"
 
 

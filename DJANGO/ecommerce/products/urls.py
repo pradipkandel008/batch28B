@@ -1,5 +1,8 @@
 from django.urls import path
 from . import views
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 urlpatterns =[
     path('', views.from_app),
@@ -22,4 +25,16 @@ urlpatterns =[
 
     path('post_file/', views.post_file),
     path('get_files/', views.get_file),
+    path('delete_file/<int:file_id>', views.delete_file),
+    path('update_file/<int:file_id>', views.update_file),
+
+    path('get_file_modelform/', views.get_file_modelform),
+    path('post_file_modelform/', views.post_file_modelform),
+    path('delete_file_modelform/<int:file_id>', views.delete_file_modelform),
+    path('update_file_modelform/<int:file_id>', views.update_file_modelform),
+
+
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_URL)

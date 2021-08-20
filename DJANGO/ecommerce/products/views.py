@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Product, Student, Person, FileUpload
-from .forms import PersonForm, ProductForm
+from .forms import PersonForm, ProductForm, FileForm
+import os
 
 
 def from_app(request):
@@ -149,6 +150,17 @@ def update_person(request, person_id):
 
 # file upload with normal form
 def post_file(request):
+    if request.method == "POST":
+        title1 = request.POST['title']
+        image1 = request.FILES['file']
+        file_obj = FileUpload(title=title1,
+                              file=image1)
+        file_obj.save()
+        if file_obj:
+            return redirect('/products/get_files/')
+        else:
+            return HttpResponse("File could not be uploaded")
+
     context = {
         'activate_file': 'active'
     }
@@ -162,3 +174,80 @@ def get_file(request):
         'activate_file': 'active'
     }
     return render(request, 'products/get_files.html', context)
+
+
+def delete_file(request, file_id):
+    image = FileUpload.objects.get(id=file_id)
+    os.remove(image.file.path)
+    image.delete()
+    return redirect('/products/get_files/')
+
+
+def update_file(request, file_id):
+    image = FileUpload.objects.get(id=file_id)
+
+    if request.method == "POST":
+        if request.FILES.get('file'):
+            os.remove(image.file.path)
+            image.title = request.POST['title']
+            image.file = request.FILES['file']
+            image.save()
+
+        else:
+            image.title = request.POST['title']
+            image.save()
+        return redirect('/products/get_files')
+
+    context = {
+        'file': image,
+        'activate_file': 'active'
+    }
+    return render(request, 'products/update_file.html', context)
+
+
+def get_file_modelform(request):
+    files = FileUpload.objects.all()
+    context = {
+        'files': files,
+        'activate_file_modelform': 'active'
+    }
+    return render(request, 'products/get_file_modelform.html', context)
+
+
+def post_file_modelform(request):
+    form =  FileForm()
+    if request.method == "POST":
+        form = FileForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('/products/get_file_modelform/')
+        else:
+            return HttpResponse("File could not be saved")
+    context = {
+        'form_file': form,
+        'activate_file_modelform': 'active'
+    }
+    return render(request, 'products/post_file_modelform.html', context)
+
+
+def delete_file_modelform(request, file_id):
+    image = FileUpload.objects.get(id=file_id)
+    os.remove(image.file.path)
+    image.delete()
+    return redirect('/products/get_file_modelform/')
+
+
+def update_file_modelform(request, file_id):
+    file = FileUpload.objects.get(id=file_id)
+    if request.method == "POST":
+        form = FileForm(request.POST, request.FILES, instance=file)
+        if form.is_valid():
+            form.save()
+            return redirect('/products/get_file_modelform/')
+        else:
+            return HttpResponse("File could not be saved")
+    context = {
+        'form_file': FileForm(instance=file),
+        'activate_file_modelform': 'active'
+    }
+    return render(request, 'products/update_file_modelform.html', context)
