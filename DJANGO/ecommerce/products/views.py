@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from .models import Product, Student, Person, FileUpload
 from .forms import PersonForm, ProductForm, FileForm
 import os
+from django.contrib import messages
 
 
 def from_app(request):
@@ -111,7 +112,11 @@ def get_person_form(request):
         form = PersonForm(request.POST)
         if form.is_valid():
             form.save()
+            messages.add_message(request, messages.SUCCESS, 'Person Added Successfully')
             return redirect('/products/get_persons/')
+        else:
+            messages.add_message(request, messages.ERROR, 'Something went wrong')
+            return render(request, 'products/get_person_form.html', {'form_person': form})
     context = {
         'form_person': form,
         'activate_person': 'active'

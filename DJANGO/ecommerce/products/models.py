@@ -1,4 +1,6 @@
 from django.db import models
+from django.core import validators
+from django.core.validators import *
 
 
 class Product(models.Model):
@@ -23,10 +25,10 @@ class Student(models.Model):
 
 
 class Person(models.Model):
-    firstname = models.CharField(max_length=50)
-    lastname = models.CharField(max_length=50)
-    email = models.EmailField()
-    phone = models.CharField(max_length=10)
+    firstname = models.CharField(max_length=50,null=True, validators=[validators.MinLengthValidator(2)])
+    lastname = models.CharField(max_length=50,null=True, validators=[validators.MinLengthValidator(2)])
+    email = models.EmailField(unique=True,null=True, validators=[validate_email])
+    phone = models.CharField(max_length=10, null=True,validators=[validators.MinLengthValidator(7)])
     created_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
