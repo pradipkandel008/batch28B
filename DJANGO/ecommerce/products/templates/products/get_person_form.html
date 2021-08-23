@@ -37,4 +37,17 @@
 </div>
 </div>
 
+<script>
+    var form_fields = document.getElementsByTagName('input')
+    form_fields[1].placeholder = "Enter firstname";
+    form_fields[2].placeholder = 'Enter lastname';
+    form_fields[3].placeholder = 'Enter email';
+    form_fields[4].placeholder = 'Enter phone no';
+
+    for (var field in form_fields){
+    form_fields[field].className += ' my-2'
+    }
+
+</script>
+
 {% endblock %}

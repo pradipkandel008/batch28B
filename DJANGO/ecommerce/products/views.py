@@ -60,6 +60,7 @@ def get_student_form(request):
                                          batch=batch1,
                                          image_url=image_url1)
         if student:
+
             return redirect('/products/get_students/')
         # url path
         else:
@@ -72,7 +73,7 @@ def get_student_form(request):
 
 
 def get_students(request):
-    students = Student.objects.all()
+    students = Student.objects.all().order_by('-id')
     context = {
         'students': students,
         'activate_student': 'active'
@@ -125,7 +126,7 @@ def get_person_form(request):
 
 
 def get_all_person(request):
-    persons = Person.objects.all()
+    persons = Person.objects.all().order_by('-id')
     context = {
         'persons': persons,
         'activate_person': 'active'
@@ -136,6 +137,7 @@ def get_all_person(request):
 def delete_person(request, person_id):
     person = Person.objects.get(id=person_id)
     person.delete()
+    messages.add_message(request, messages.SUCCESS, 'Person Deleted Successfully')
     return redirect('/products/get_persons/')
 
 
@@ -211,7 +213,7 @@ def update_file(request, file_id):
 
 
 def get_file_modelform(request):
-    files = FileUpload.objects.all()
+    files = FileUpload.objects.all().order_by('-id')
     context = {
         'files': files,
         'activate_file_modelform': 'active'

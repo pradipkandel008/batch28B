@@ -1,4 +1,12 @@
 body{
-    background-color:cyan;
+    background-color:white;
 }
+
+.help-block {
+    color:red;
+}
+
+.footer{
+background:#000;
+color:#fff;}
 

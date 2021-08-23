@@ -31,5 +31,6 @@ urlpatterns = [
     path('first/', index),
     path('second/', batch28B),
     path('products/', include('products.urls')),
+    path('', include('accounts.urls')),
 
 ]
