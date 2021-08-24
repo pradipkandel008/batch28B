@@ -1,20 +1,30 @@
 {% extends 'layout.html' %}
 {% load bootstrap %}
 {% block title %}
-<title>Add Persons</title>
+<title>Add User</title>
 {% endblock%}
 
 {% block main_content %}
+<style>
+    p.help-block, ul li{
+    color:#abc;
+    }
+    span.help-block{
+    color:red;
+    }
+
+</style>
+
 <div class="container">
     <div class="row">
 
         <div class="col-md-6 offset-md-3">
-            <h1 class="text-center">Add New Person</h1>
+            <h1 class="text-center">Add New User</h1>
            {% include 'products/message.html' %}
             <div class="card p-2">
                 <form class="form" action="" method="POST">
                     {% csrf_token %}
-                    {{ form_person | bootstrap_horizontal }}
+                    {{ form_user | bootstrap_horizontal }}
                     <button type="submit" class="btn btn-primary mt-3">Submit</button>
                 </form>
             </div>
@@ -24,10 +34,9 @@
 
 <script>
     var form_fields = document.getElementsByTagName('input')
-    form_fields[1].placeholder = "Enter firstname";
-    form_fields[2].placeholder = 'Enter lastname';
-    form_fields[3].placeholder = 'Enter email';
-    form_fields[4].placeholder = 'Enter phone no';
+    form_fields[1].placeholder = "Enter Username";
+    form_fields[2].placeholder = 'Enter Password';
+    form_fields[3].placeholder = 'Confirm Password';
 
     for (var field in form_fields){
     form_fields[field].className += ' my-2'

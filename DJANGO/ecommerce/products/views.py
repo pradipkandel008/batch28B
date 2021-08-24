@@ -4,6 +4,7 @@ from .models import Product, Student, Person, FileUpload
 from .forms import PersonForm, ProductForm, FileForm
 import os
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 
 def from_app(request):
@@ -22,6 +23,7 @@ def second_page(request):
     return render(request, 'products/second.html')
 
 
+@login_required
 def get_products(request):
     products_django = Product.objects.all()
     context = {
@@ -38,7 +40,7 @@ def get_products(request):
 #     }
 #     return render(request, 'products/get_person_form.html', context)
 
-
+@login_required
 def get_product_form(request):
     form = ProductForm()
     context = {
@@ -46,7 +48,7 @@ def get_product_form(request):
     }
     return render(request, 'products/get_product_form.html', context)
 
-
+@login_required
 def get_student_form(request):
     if request.method == 'POST':
         data = request.POST
@@ -71,7 +73,7 @@ def get_student_form(request):
     return render(request, 'products/get_student_form.html', context)
     # html file path
 
-
+@login_required
 def get_students(request):
     students = Student.objects.all().order_by('-id')
     context = {
@@ -80,13 +82,13 @@ def get_students(request):
     }
     return render(request, 'products/get_students.html', context)
 
-
+@login_required
 def delete_student(request, student_id):
     student = Student.objects.get(id=student_id)
     student.delete()
     return redirect('/products/get_students/')
 
-
+@login_required
 def update_student(request, student_id):
     student = Student.objects.get(id=student_id)
 
@@ -107,6 +109,7 @@ def update_student(request, student_id):
 
 
 # with modelform
+@login_required
 def get_person_form(request):
     form = PersonForm()
     if request.method == "POST":
@@ -124,7 +127,7 @@ def get_person_form(request):
     }
     return render(request, 'products/get_person_form.html', context)
 
-
+@login_required
 def get_all_person(request):
     persons = Person.objects.all().order_by('-id')
     context = {
@@ -133,14 +136,14 @@ def get_all_person(request):
     }
     return render(request, 'products/get_persons.html', context)
 
-
+@login_required
 def delete_person(request, person_id):
     person = Person.objects.get(id=person_id)
     person.delete()
     messages.add_message(request, messages.SUCCESS, 'Person Deleted Successfully')
     return redirect('/products/get_persons/')
 
-
+@login_required
 def update_person(request, person_id):
     person = Person.objects.get(id=person_id)
     if request.method == 'POST':
@@ -156,6 +159,7 @@ def update_person(request, person_id):
 
 
 # file upload with normal form
+@login_required
 def post_file(request):
     if request.method == "POST":
         title1 = request.POST['title']
@@ -173,7 +177,7 @@ def post_file(request):
     }
     return render(request, 'products/post_file.html', context)
 
-
+@login_required
 def get_file(request):
     files = FileUpload.objects.all()
     context = {
@@ -182,14 +186,14 @@ def get_file(request):
     }
     return render(request, 'products/get_files.html', context)
 
-
+@login_required
 def delete_file(request, file_id):
     image = FileUpload.objects.get(id=file_id)
     os.remove(image.file.path)
     image.delete()
     return redirect('/products/get_files/')
 
-
+@login_required
 def update_file(request, file_id):
     image = FileUpload.objects.get(id=file_id)
 
@@ -211,7 +215,7 @@ def update_file(request, file_id):
     }
     return render(request, 'products/update_file.html', context)
 
-
+@login_required
 def get_file_modelform(request):
     files = FileUpload.objects.all().order_by('-id')
     context = {
@@ -220,7 +224,7 @@ def get_file_modelform(request):
     }
     return render(request, 'products/get_file_modelform.html', context)
 
-
+@login_required
 def post_file_modelform(request):
     form =  FileForm()
     if request.method == "POST":
@@ -236,14 +240,14 @@ def post_file_modelform(request):
     }
     return render(request, 'products/post_file_modelform.html', context)
 
-
+@login_required
 def delete_file_modelform(request, file_id):
     image = FileUpload.objects.get(id=file_id)
     os.remove(image.file.path)
     image.delete()
     return redirect('/products/get_file_modelform/')
 
-
+@login_required
 def update_file_modelform(request, file_id):
     file = FileUpload.objects.get(id=file_id)
     if request.method == "POST":
