@@ -35,8 +35,12 @@ def login_user(request):
                                 password=data['password'])
             #print(user)
             if user is not None:
-                login(request, user)
-                return redirect('/products/products')
+                if user.is_staff:
+                    login(request, user)
+                    return redirect('/admins')
+                elif not user.is_staff:
+                    login(request, user)
+                    return redirect('/products/products')
             else:
                 messages.add_message(request, messages.ERROR, 'Invalid Username or Password')
                 return render(request, 'accounts/login.html', {'form_login':form})

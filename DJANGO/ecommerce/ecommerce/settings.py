@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'bootstrapform',
     # 'accounts',
     'accounts.apps.AccountsConfig',
+    #'admins',
+    'admins.apps.AdminsConfig',
 ]
 
 MIDDLEWARE = [

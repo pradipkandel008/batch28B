@@ -12,7 +12,7 @@
             <h1 class="text-center">Add New Person</h1>
            {% include 'products/message.html' %}
             <div class="card p-2">
-                <form class="form" action="" method="POST">
+                <form class="form myForm" action="" method="POST">
                     {% csrf_token %}
                     {{ form_person | bootstrap_horizontal }}
                     <button type="submit" class="btn btn-primary mt-3">Submit</button>
