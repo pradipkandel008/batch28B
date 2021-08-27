@@ -33,6 +33,8 @@ urlpatterns =[
     path('delete_file_modelform/<int:file_id>', views.delete_file_modelform),
     path('update_file_modelform/<int:file_id>', views.update_file_modelform),
 
+    path('show_students', views.show_students),
+
 
 ]
 

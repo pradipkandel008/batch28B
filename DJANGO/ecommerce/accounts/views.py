@@ -3,15 +3,16 @@ from django.contrib.auth import logout, login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.contrib import messages
-from .forms import LoginForm
+from .forms import LoginForm, CreateUserForm
+from .auth import unauthenticated_user
 
 def homepage(request):
     return render(request, 'accounts/homepage.html')
 
-
+@unauthenticated_user
 def register_user(request):
     if request.method == "POST":
-        form = UserCreationForm(request.POST)
+        form = CreateUserForm(request.POST)
         if form.is_valid():
             form.save()
             messages.add_message(request, messages.SUCCESS, 'User registered successfully')
@@ -20,12 +21,12 @@ def register_user(request):
             messages.add_message(request, messages.ERROR, 'Something went wrong')
             return render(request, 'accounts/register.html', {'form_user': form})
     context = {
-        'form_user': UserCreationForm,
+        'form_user': CreateUserForm,
         'activate_register': 'active'
     }
     return render(request, 'accounts/register.html', context)
 
-
+@unauthenticated_user
 def login_user(request):
     if request.method == "POST":
         form = LoginForm(request.POST)

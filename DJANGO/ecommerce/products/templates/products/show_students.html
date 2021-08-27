@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+{% block title %}
+<title>All Students</title>
+{% endblock%}
+
+{% block main_content %}
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-10 offset-md-1">
+            <h1 class="text-center">All Students</h1>
+            <div class="row justify-content-around">
+             {% for i in students %}
+            <div class="card col-md-3">
+  <img src="{{i.image_url}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{i.firstname}}</h5>
+    <p class="card-text">{{i.lastname}}</p>
+       <p class="card-text">{{i.batch}}</p>
+    <a href="#" class="btn btn-primary">View Details</a>
+  </div>
+</div>
+            {% endfor %}
+                </div>
+
+        </div>
+    </div>
+</div>
+{% endblock main_content %}
