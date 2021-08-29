@@ -14,21 +14,17 @@
                     <a class="nav-link {{activate_student}}" href="/products/show_students">Students(Normal Form)</a>
                 </li>
 
-                <li class="nav-item ">
-                    <a class="nav-link {{activate_person}}" href="/products/get_persons/">Person(Model Form)</a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link {{activate_file}}" href="/products/get_files/">Files(Normal Form)</a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link {{activate_file_modelform}}"
-                       href="/products/get_file_modelform/">Files(Model Form)</a>
-                </li>
+
                 {% if user.is_authenticated %}
                 <li class="nav-item">
                     <a class="nav-link"
                        href="/logout">Logout</a>
                 </li>
+                 <li class="nav-item">
+                    <a class="nav-link"
+                       href="/profile">{{request.user.username}}</a>
+                </li>
+
                 {% else %}
                 <li class="nav-item">
                     <a class="nav-link {{activate_register}}"
