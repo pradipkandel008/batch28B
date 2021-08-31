@@ -6,6 +6,7 @@ import os
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from accounts.auth import user_only, admin_only
+from .filters import PersonFilter
 
 
 def from_app(request):
@@ -139,9 +140,12 @@ def get_person_form(request):
 @admin_only
 def get_all_person(request):
     persons = Person.objects.all().order_by('-id')
+    person_filter = PersonFilter(request.GET, queryset=persons)
+    person_final = person_filter.qs
     context = {
-        'persons': persons,
-        'activate_person': 'active'
+        'persons': person_final,
+        'activate_person': 'active',
+        'person_filter': person_filter
     }
     return render(request, 'products/get_persons.html', context)
 

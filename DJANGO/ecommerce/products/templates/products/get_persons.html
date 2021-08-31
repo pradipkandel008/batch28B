@@ -1,5 +1,6 @@
 {% extends 'layout-admin.html' %}
 {% block title %}
+{% load bootstrap %}
 <title>All Persons</title>
 {% endblock%}
 
@@ -12,6 +13,14 @@
             <div class="card p-2">
                {% include 'products/message.html' %}
                 <a class="btn btn-primary btn-sm ms-auto" href="/products/get_person_form/">Add Person</a>
+
+                <div class="card card-body">
+                    <form class="form myForm" method="get">
+                        {{person_filter.form | bootstrap_horizontal}}
+                        <button class="btn btn-primary btn-sm mt-3" type="submit">Search</button>
+                    </form>
+                </div>
+
                 <table class="table-striped">
                     <tr>
                         <th>Firstname</th>

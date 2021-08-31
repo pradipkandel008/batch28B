@@ -15,7 +15,11 @@
                 </li>
 
 
+
                 {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link {{activate_password}}" href="/products/password_change_user">Password Change</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link"
                        href="/logout">Logout</a>

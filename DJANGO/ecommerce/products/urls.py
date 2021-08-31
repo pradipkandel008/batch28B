@@ -2,6 +2,7 @@ from django.urls import path
 from . import views
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.auth import views as auth_views
 
 
 urlpatterns =[
@@ -34,7 +35,10 @@ urlpatterns =[
     path('update_file_modelform/<int:file_id>', views.update_file_modelform),
 
     path('show_students', views.show_students),
-
+    path('password_change_user', auth_views.PasswordChangeView.as_view(
+        template_name='products/password_change.html')),
+    path('password_change_done_user', auth_views.PasswordChangeView.as_view(
+        template_name='products/password_change_done.html'), name='password_change_done')
 
 ]
 
